@@ -1,13 +1,14 @@
 {
-  "name": "vue-pic",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-pic-comp",
+  "version": "0.1.1",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
+  "main": "plugin/index.ts",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

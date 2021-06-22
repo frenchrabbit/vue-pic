@@ -2,17 +2,17 @@
 
 ## Installation
 ```
-yarn add vue-pic
+yarn add vue-pic-comp
 ```
 ```
-npm install --save vue-pic
+npm install --save vue-pic-comp
 ```
 
 ### Usage
 In your main.js
 ```javascript
 import Vue from 'vue'
-import VuePic from 'vue-pic'
+import VuePic from 'vue-pic-comp'
 
 Vue.use(VuePic, {
   tagname: 'pic',
@@ -28,7 +28,7 @@ Vue.use(VuePic, {
     xxl: 1920,
   },
   srcProcessor: {
-    src: (src: string) => src,
+    src: (src, width, height) => src,
     readySrc: (src, width, height) =>
       `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`,
     loadingSrc: (src, width, height) =>
@@ -53,7 +53,8 @@ will output
 ```html
 <img 
     src="https://placehold.it/1000x200" 
-    sizes="md:50vw 100vw" 
+    srcset="...."
+    sizes="(min-width: 968px) 50vw, 100vw" 
     width="100" 
     height="100" />
 ```
