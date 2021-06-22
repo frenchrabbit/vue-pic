@@ -1,29 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <h1>vue-pic demo</h1>
+    <div class="spacer"></div>
+
+    <div class="spacer"></div>
+
+    <pic
+      class="debug"
+      src="https://picsum.photos/id/237/1920/700"
+      width="1920"
+      height="700"
+    ></pic>
+
+    <br />
+
+    <pic
+      class="debug"
+      src="https://picsum.photos/id/137/1920/700"
+      width="500"
+      height="500"
+    ></pic>
+
+    <br />
+
+    <pic
+      class="debug"
+      src="https://picsum.photos/id/37/1920/700"
+      width="1920"
+      height="1920"
+    ></pic>
+    <br />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default Vue.extend({
   name: 'App',
-  components: {
-    HelloWorld,
-  },
 })
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.spacer {
+  height: 200vh;
 }
 </style>

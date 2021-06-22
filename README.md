@@ -1,13 +1,61 @@
-# vue-pic
+# vue-pic - smart img/picture component with lazy and srcset
 
-## Project setup
+## Installation
 ```
-yarn install
+yarn add vue-pic
+```
+```
+npm install --save vue-pic
 ```
 
-### Compiles and hot-reloads for development
+### Usage
+In your main.js
+```javascript
+import Vue from 'vue'
+import VuePic from 'vue-pic'
+
+Vue.use(VuePic, {
+  tagname: 'pic',
+  offset: 100,
+  enlarge: false,
+  // use for sizes
+  screens: {
+    xs: 320,
+    sm: 640,
+    md: 968,
+    lg: 1024,
+    xl: 1440,
+    xxl: 1920,
+  },
+  srcProcessor: {
+    src: (src: string) => src,
+    readySrc: (src, width, height) =>
+      `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`,
+    loadingSrc: (src, width, height) =>
+      `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`,
+    errorSrc: (src, width, height) =>
+      `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20${width}%20${height}'%3E%3C/svg%3E`,
+  },
+})
+//...
 ```
-yarn serve
+
+
+### Single image
+```html
+<pic 
+    src="https://placehold.it/1000x200" 
+    sizes="md:50vw 100vw" 
+    width="100" 
+    height="100" />
+```
+will output
+```html
+<img 
+    src="https://placehold.it/1000x200" 
+    sizes="md:50vw 100vw" 
+    width="100" 
+    height="100" />
 ```
 
 ### Compiles and minifies for production
